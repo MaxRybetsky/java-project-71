@@ -1,6 +1,7 @@
 package hexlet.code;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -9,11 +10,14 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DifferTest {
-    @Test
-    public void whenGivenTwoJsonFilesThenGenerateDifferencesBetweenThem() throws URISyntaxException, IOException {
+    @ParameterizedTest
+    @ValueSource(strings = {"json", "yaml", "yml"})
+    public void whenGivenTwoFilesThenGenerateDifferencesBetweenThem(
+            String extension
+    ) throws URISyntaxException, IOException {
         // given
-        String file1 = getAbsoluteFilePath("fixtures/given_file1.json");
-        String file2 = getAbsoluteFilePath("fixtures/given_file2.json");
+        String file1 = getAbsoluteFilePath("fixtures/given_file1." + extension);
+        String file2 = getAbsoluteFilePath("fixtures/given_file2." + extension);
         String expected = readFile("fixtures/expected_json.txt");
 
         // when
