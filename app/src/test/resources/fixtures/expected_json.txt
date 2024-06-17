@@ -1,52 +1,52 @@
 [ {
-  "valueOld" : 200,
-  "valueNew" : 300,
-  "key" : "setting2",
-  "status" : "CHANGED"
-}, {
-  "valueOld" : "value1",
-  "key" : "key1",
-  "status" : "REMOVED"
-}, {
-  "valueOld" : true,
-  "valueNew" : "none",
-  "key" : "setting3",
-  "status" : "CHANGED"
-}, {
-  "valueNew" : "value2",
-  "key" : "key2",
-  "status" : "ADDED"
+  "value" : [ "a", "b", "c" ],
+  "key" : "chars1",
+  "status" : "NOT_CHANGED"
 }, {
   "valueOld" : [ "d", "e", "f" ],
   "valueNew" : false,
   "key" : "chars2",
   "status" : "CHANGED"
 }, {
-  "valueOld" : "Some value",
-  "valueNew" : "Another value",
-  "key" : "setting1",
+  "valueOld" : false,
+  "valueNew" : true,
+  "key" : "checked",
   "status" : "CHANGED"
 }, {
-  "value" : [ "a", "b", "c" ],
-  "key" : "chars1",
-  "status" : "NOT_CHANGED"
+  "valueOld" : null,
+  "valueNew" : [ "value1", "value2" ],
+  "key" : "default",
+  "status" : "CHANGED"
 }, {
-  "valueNew" : [ 4, 5, 6 ],
-  "key" : "numbers4",
+  "valueOld" : 45,
+  "valueNew" : null,
+  "key" : "id",
+  "status" : "CHANGED"
+}, {
+  "valueOld" : "value1",
+  "key" : "key1",
+  "status" : "REMOVED"
+}, {
+  "valueNew" : "value2",
+  "key" : "key2",
   "status" : "ADDED"
 }, {
-  "valueOld" : [ 3, 4, 5 ],
-  "key" : "numbers3",
-  "status" : "REMOVED"
+  "value" : [ 1, 2, 3, 4 ],
+  "key" : "numbers1",
+  "status" : "NOT_CHANGED"
 }, {
   "valueOld" : [ 2, 3, 4, 5 ],
   "valueNew" : [ 22, 33, 44, 55 ],
   "key" : "numbers2",
   "status" : "CHANGED"
 }, {
-  "value" : [ 1, 2, 3, 4 ],
-  "key" : "numbers1",
-  "status" : "NOT_CHANGED"
+  "valueOld" : [ 3, 4, 5 ],
+  "key" : "numbers3",
+  "status" : "REMOVED"
+}, {
+  "valueNew" : [ 4, 5, 6 ],
+  "key" : "numbers4",
+  "status" : "ADDED"
 }, {
   "valueNew" : {
     "nestedKey" : "value",
@@ -55,18 +55,18 @@
   "key" : "obj1",
   "status" : "ADDED"
 }, {
-  "valueOld" : null,
-  "valueNew" : [ "value1", "value2" ],
-  "key" : "default",
+  "valueOld" : "Some value",
+  "valueNew" : "Another value",
+  "key" : "setting1",
   "status" : "CHANGED"
 }, {
-  "valueOld" : false,
-  "valueNew" : true,
-  "key" : "checked",
+  "valueOld" : 200,
+  "valueNew" : 300,
+  "key" : "setting2",
   "status" : "CHANGED"
 }, {
-  "valueOld" : 45,
-  "valueNew" : null,
-  "key" : "id",
+  "valueOld" : true,
+  "valueNew" : "none",
+  "key" : "setting3",
   "status" : "CHANGED"
 } ]

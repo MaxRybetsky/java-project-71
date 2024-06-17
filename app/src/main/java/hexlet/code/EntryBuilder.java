@@ -1,11 +1,11 @@
 package hexlet.code;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.TreeSet;
 
 import static hexlet.code.EntryStatus.ADDED;
 import static hexlet.code.EntryStatus.CHANGED;
@@ -17,7 +17,7 @@ public class EntryBuilder {
         Set<String> keys1 = map1.keySet();
         Set<String> keys2 = map2.keySet();
 
-        Set<String> allKeys = new HashSet<>(keys1);
+        Set<String> allKeys = new TreeSet<>(keys1);
         allKeys.addAll(keys2);
 
         return allKeys.stream()
