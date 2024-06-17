@@ -1,7 +1,7 @@
 package hexlet.code.formatters;
 
 import hexlet.code.EntryStatus;
-import hexlet.code.EntryValueName;
+import hexlet.code.EntryFieldName;
 
 import java.util.List;
 import java.util.Map;
@@ -9,20 +9,20 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class PlainFormatter {
-    public static String format(List<Map<EntryValueName, Object>> entries) {
+    public static String format(List<Map<String, Object>> entries) {
         return entries.stream()
                 .map(PlainFormatter::format)
                 .filter(entryString -> !Objects.equals("", entryString))
                 .collect(Collectors.joining("\n"));
     }
 
-    private static String format(Map<EntryValueName, Object> entry) {
-        String key = (String) entry.get(EntryValueName.KEY);
-        EntryStatus entryStatus = (EntryStatus) entry.get(EntryValueName.STATUS);
+    private static String format(Map<String, Object> entry) {
+        String key = (String) entry.get(EntryFieldName.KEY);
+        EntryStatus entryStatus = (EntryStatus) entry.get(EntryFieldName.STATUS);
 
-        String value = toPlainString(entry.get(EntryValueName.VALUE));
-        String valueOld = toPlainString(entry.get(EntryValueName.VALUE_OLD));
-        String valueNew = toPlainString(entry.get(EntryValueName.VALUE_NEW));
+        String value = toPlainString(entry.get(EntryFieldName.VALUE));
+        String valueOld = toPlainString(entry.get(EntryFieldName.VALUE_OLD));
+        String valueNew = toPlainString(entry.get(EntryFieldName.VALUE_NEW));
 
         switch (entryStatus) {
             case NOT_CHANGED -> {

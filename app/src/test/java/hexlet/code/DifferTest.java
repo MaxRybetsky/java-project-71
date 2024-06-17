@@ -21,14 +21,17 @@ class DifferTest {
 
         String expectedStylish = readFile("fixtures/expected_stylish.txt");
         String expectedPlain = readFile("fixtures/expected_plain.txt");
+        String expectedJson = readFile("fixtures/expected_json.txt");
 
         // when
         String actualStylish = Differ.generate("stylish", file1, file2);
         String actualPlain = Differ.generate("plain", file1, file2);
+        String actualJson = Differ.generate("json", file1, file2);
 
         // then
         assertEquals(expectedStylish, actualStylish);
         assertEquals(expectedPlain, actualPlain);
+        assertEquals(expectedJson, actualJson);
     }
 
     private String getAbsoluteFilePath(String path) throws URISyntaxException {

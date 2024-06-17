@@ -1,7 +1,7 @@
 package hexlet.code.formatters;
 
 import hexlet.code.EntryStatus;
-import hexlet.code.EntryValueName;
+import hexlet.code.EntryFieldName;
 
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ public class StylishFormatter {
     private static final String ADDED_DELIMITER = "+ ";
     private static final String REMOVED_DELIMITER = "- ";
 
-    public static String format(List<Map<EntryValueName, Object>> entries) {
+    public static String format(List<Map<String, Object>> entries) {
         String entriesString = entries.stream()
                 .map(StylishFormatter::format)
                 .collect(Collectors.joining("\n"));
@@ -21,13 +21,13 @@ public class StylishFormatter {
         return "{\n" + entriesString + "\n}";
     }
 
-    private static String format(Map<EntryValueName, Object> entry) {
-        String key = (String) entry.get(EntryValueName.KEY);
-        EntryStatus entryStatus = (EntryStatus) entry.get(EntryValueName.STATUS);
+    private static String format(Map<String, Object> entry) {
+        String key = (String) entry.get(EntryFieldName.KEY);
+        EntryStatus entryStatus = (EntryStatus) entry.get(EntryFieldName.STATUS);
 
-        String value = String.valueOf(entry.get(EntryValueName.VALUE));
-        String valueOld = String.valueOf(entry.get(EntryValueName.VALUE_OLD));
-        String valueNew = String.valueOf(entry.get(EntryValueName.VALUE_NEW));
+        String value = String.valueOf(entry.get(EntryFieldName.VALUE));
+        String valueOld = String.valueOf(entry.get(EntryFieldName.VALUE_OLD));
+        String valueNew = String.valueOf(entry.get(EntryFieldName.VALUE_NEW));
 
         switch (entryStatus) {
             case NOT_CHANGED -> {

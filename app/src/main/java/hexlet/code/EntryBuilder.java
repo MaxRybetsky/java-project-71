@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ import static hexlet.code.EntryStatus.NOT_CHANGED;
 import static hexlet.code.EntryStatus.REMOVED;
 
 public class EntryBuilder {
-    public static List<Map<EntryValueName, Object>> build(Map<String, Object> map1, Map<String, Object> map2) {
+    public static List<Map<String, Object>> build(Map<String, Object> map1, Map<String, Object> map2) {
         Set<String> keys1 = map1.keySet();
         Set<String> keys2 = map2.keySet();
 
@@ -25,27 +25,27 @@ public class EntryBuilder {
                 .toList();
     }
 
-    private static Map<EntryValueName, Object> map(String key, Map<String, Object> map1, Map<String, Object> map2) {
-        Map<EntryValueName, Object> result = new EnumMap<>(EntryValueName.class);
+    private static Map<String, Object> map(String key, Map<String, Object> map1, Map<String, Object> map2) {
+        Map<String, Object> result = new HashMap<>();
 
         Object valueOld = map1.get(key);
         Object valueNew = map2.get(key);
 
-        result.put(EntryValueName.KEY, key);
+        result.put(EntryFieldName.KEY, key);
 
         if (!map1.containsKey(key) && map2.containsKey(key)) {
-            result.put(EntryValueName.VALUE_NEW, valueNew);
-            result.put(EntryValueName.STATUS, ADDED);
+            result.put(EntryFieldName.VALUE_NEW, valueNew);
+            result.put(EntryFieldName.STATUS, ADDED);
         } else if (map1.containsKey(key) && !map2.containsKey(key)) {
-            result.put(EntryValueName.VALUE_OLD, valueOld);
-            result.put(EntryValueName.STATUS, REMOVED);
+            result.put(EntryFieldName.VALUE_OLD, valueOld);
+            result.put(EntryFieldName.STATUS, REMOVED);
         } else if (map1.containsKey(key) && map2.containsKey(key) && Objects.equals(valueOld, valueNew)) {
-            result.put(EntryValueName.VALUE, valueOld);
-            result.put(EntryValueName.STATUS, NOT_CHANGED);
+            result.put(EntryFieldName.VALUE, valueOld);
+            result.put(EntryFieldName.STATUS, NOT_CHANGED);
         } else if (map1.containsKey(key) && map2.containsKey(key) && !Objects.equals(valueOld, valueNew)) {
-            result.put(EntryValueName.VALUE_OLD, valueOld);
-            result.put(EntryValueName.VALUE_NEW, valueNew);
-            result.put(EntryValueName.STATUS, CHANGED);
+            result.put(EntryFieldName.VALUE_OLD, valueOld);
+            result.put(EntryFieldName.VALUE_NEW, valueNew);
+            result.put(EntryFieldName.STATUS, CHANGED);
         }
 
         return result;

@@ -8,7 +8,7 @@ public class Differ {
         Map<String, Object> fileData1 = FileDataFetcher.getDataFromFile(path1);
         Map<String, Object> fileData2 = FileDataFetcher.getDataFromFile(path2);
 
-        List<Map<EntryValueName, Object>> allEntries = EntryBuilder.build(fileData1, fileData2);
+        List<Map<String, Object>> allEntries = EntryBuilder.build(fileData1, fileData2);
 
         return Formatter.formatEntries(allEntries, format);
     }
