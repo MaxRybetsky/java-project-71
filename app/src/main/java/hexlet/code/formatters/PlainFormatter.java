@@ -20,7 +20,6 @@ public class PlainFormatter {
         String key = (String) entry.get(EntryFieldName.KEY);
         EntryStatus entryStatus = (EntryStatus) entry.get(EntryFieldName.STATUS);
 
-        String value = toPlainString(entry.get(EntryFieldName.VALUE));
         String valueOld = toPlainString(entry.get(EntryFieldName.VALUE_OLD));
         String valueNew = toPlainString(entry.get(EntryFieldName.VALUE_NEW));
 
@@ -29,10 +28,10 @@ public class PlainFormatter {
                 return "";
             }
             case CHANGED -> {
-                return String.format("Property '%s' was updated. From '%s' to '%s'", key, valueOld, valueNew);
+                return String.format("Property '%s' was updated. From %s to %s", key, valueOld, valueNew);
             }
             case ADDED -> {
-                return String.format("Property '%s' was added with value: '%s'", key, value);
+                return String.format("Property '%s' was added with value: %s", key, valueNew);
             }
             case REMOVED -> {
                 return String.format("Property '%s' was removed", key);
@@ -44,6 +43,8 @@ public class PlainFormatter {
     private static String toPlainString(Object object) {
         if (object instanceof List || object instanceof Map<?, ?>) {
             return "[complex value]";
+        } else if (object instanceof String) {
+            return "'" + object + "'";
         } else {
             return String.valueOf(object);
         }
