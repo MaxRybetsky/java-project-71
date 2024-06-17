@@ -1,0 +1,13 @@
+Property 'setting2' was updated. From '200' to '300'
+Property 'key1' was removed
+Property 'setting3' was updated. From 'true' to 'none'
+Property 'key2' was added with value: 'null'
+Property 'chars2' was updated. From '[complex value]' to 'false'
+Property 'setting1' was updated. From 'Some value' to 'Another value'
+Property 'numbers4' was added with value: 'null'
+Property 'numbers3' was removed
+Property 'numbers2' was updated. From '[complex value]' to '[complex value]'
+Property 'obj1' was added with value: 'null'
+Property 'default' was updated. From 'null' to '[complex value]'
+Property 'checked' was updated. From 'false' to 'true'
+Property 'id' was updated. From '45' to 'null'
