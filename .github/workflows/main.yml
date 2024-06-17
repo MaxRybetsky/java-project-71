@@ -15,9 +15,9 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '21'
-    - run: chmod +x ./app/gradlew
+    #- run: chmod +x ./app/gradlew
     - name: Gradle Build
-      uses: gradle/gradle-build-action@v2
+      uses: gradle/gradle-build-action@v3
       with:
         arguments: build
         build-root-directory: app
