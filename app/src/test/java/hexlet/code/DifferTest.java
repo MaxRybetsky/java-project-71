@@ -24,9 +24,9 @@ class DifferTest {
         String expectedJson = readFile("fixtures/expected_json.txt");
 
         // when
-        String actualStylish = Differ.generate("stylish", file1, file2);
-        String actualPlain = Differ.generate("plain", file1, file2);
-        String actualJson = Differ.generate("json", file1, file2);
+        String actualStylish = Differ.generate(file1, file2, "stylish");
+        String actualPlain = Differ.generate(file1, file2, "plain");
+        String actualJson = Differ.generate(file1, file2, "json");
 
         // then
         assertEquals(expectedStylish, actualStylish);
