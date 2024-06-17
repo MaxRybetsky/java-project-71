@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -21,7 +22,22 @@ class DifferTest {
         String expected = readFile("fixtures/expected_json.txt");
 
         // when
-        String result = Differ.generate(file1, file2);
+        String result = Differ.generate("stylish", file2, file1);
+
+        // then
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void whenGivenTwoFilesWithNestedValuesThenGenerateDifferencesBetweenThemOnlyForFirstLevel()
+            throws URISyntaxException, IOException {
+        // given
+        String file1 = getAbsoluteFilePath("fixtures/complex/given_file1.json");
+        String file2 = getAbsoluteFilePath("fixtures/complex/given_file2.json");
+        String expected = readFile("fixtures/complex/expected_json.txt");
+
+        // when
+        String result = Differ.generate("stylish", file2, file1);
 
         // then
         assertEquals(expected, result);

@@ -41,7 +41,7 @@ public class App implements Callable<Integer> {
 
     @Override
     public Integer call() {
-        String result = Differ.generate(path1, path2);
+        String result = Differ.generate(format, path1, path2);
         System.out.println(result);
         return 0;
     }
